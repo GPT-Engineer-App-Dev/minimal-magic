@@ -1,8 +1,18 @@
 import React from 'react';
 import { Card, CardHeader, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { useToast } from '@/components/ui/use-toast';
 
 const Index = () => {
+  const { toast } = useToast();
+
+  const handleClick = () => {
+    toast({
+      title: "Button Clicked",
+      description: "You clicked the button!",
+    });
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
       <header className="bg-gray-800 text-white p-4">
@@ -19,7 +29,7 @@ const Index = () => {
           </CardContent>
         </Card>
 
-        <Button>Click me</Button>
+        <Button onClick={handleClick}>Click me</Button>
       </main>
 
       <footer className="bg-gray-200 p-4 text-center">
